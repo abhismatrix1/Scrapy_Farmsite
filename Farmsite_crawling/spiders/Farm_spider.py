@@ -190,9 +190,7 @@ class QuotesSpider(scrapy.Spider):
         for key in keys:
             ke=(key.css("td.textLeft::text").extract_first())
             da=(key.css("td.fmDispData::text").extract_first())
-            if ke!=None:
-                ke=ke.strip()
-            if da!=None:
-                da=da.strip()
             if ke != None and da != None:
+                ke = ke.strip()
+                da = da.strip()
                 self.fw.write(str(ayear) + '@' + str(aimplement) + '@' + str(adistrict) + '@' + str(acircle) + '@' +str(ke) + '@' + str(da) + '\n')
